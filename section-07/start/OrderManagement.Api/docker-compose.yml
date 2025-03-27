@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: order-management-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ordermanagement
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
